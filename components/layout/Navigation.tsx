@@ -43,15 +43,8 @@ export default function Navigation() {
               </Link>
             </div>
             
-            {/* Book Now button on right */}
+            {/* Mobile menu button on right */}
             <div className="flex-1 flex justify-end items-center gap-4">
-              <Link
-                href="https://bookings12.rmscloud.com/Search/Index/0C8B2754C6C8240A/1/"
-                target="_blank"
-                className="btn hidden md:flex whitespace-nowrap bg-white text-black border-2 border-black hover:bg-gray-100"
-              >
-                Book Now
-              </Link>
               <button
                 className="md:hidden p-2 -mr-2 flex-shrink-0"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -117,14 +110,6 @@ export default function Navigation() {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                href="https://bookings12.rmscloud.com/Search/Index/0C8B2754C6C8240A/1/"
-                target="_blank"
-                className="btn w-full mt-2 bg-white text-black border-2 border-black hover:bg-gray-100"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Book Now
-              </Link>
             </div>
           </div>
         )}

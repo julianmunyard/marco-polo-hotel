@@ -15,9 +15,9 @@ export default function Home() {
       <LandingSection />
       
       {/* Normal home page content */}
-      {/* HeroSection - Hidden for now, can restore later */}
-      {/* <HeroSection /> */}
-      <section id="rooms" className="section bg-section" style={{ paddingTop: '200px' }}>
+      <HeroSection />
+      
+      <section id="rooms" className="section bg-section" style={{ paddingTop: '60px', scrollMarginTop: '180px' }}>
         <div className="container">
           <RoomsSection />
         </div>
