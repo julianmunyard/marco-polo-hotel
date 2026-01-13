@@ -36,31 +36,32 @@ export default function HeroSection() {
 
           {/* Subheading */}
           <h2 
-            className="text-xl md:text-2xl lg:text-3xl font-normal leading-relaxed mb-10 drop-shadow-lg"
+            className="text-xl md:text-2xl lg:text-3xl font-normal leading-relaxed drop-shadow-lg"
             style={{ 
               fontFamily: "'GT America Mono', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Courier New', monospace",
               letterSpacing: '-0.01em',
               lineHeight: '1.4',
               fontWeight: 400,
               color: '#ffffff',
-              textShadow: '2px 2px 8px rgba(0,0,0,0.5)'
+              textShadow: '2px 2px 8px rgba(0,0,0,0.5)',
+              marginBottom: '0'
             }}
           >
             WHERE AFFORDABILITY MEETS CONVENIENCE.
           </h2>
 
           {/* CTA Buttons - Centered */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mx-auto" style={{ marginTop: '80px' }}>
             <a
               href="https://bookings12.rmscloud.com/Search/Index/0C8B2754C6C8240A/1/"
               target="_blank"
-              className="btn bg-gray-900 text-white border-[3px] border-white hover:bg-gray-800 px-8 py-3.5 text-sm font-bold uppercase tracking-wide shadow-[4px_4px_0_0_rgb(255,255,255)] hover:shadow-[6px_6px_0_0_rgb(255,255,255)] transition-all inline-block text-center min-w-[180px]"
+              className="btn bg-white/20 text-white hover:bg-white/30 px-8 py-3.5 text-sm font-bold uppercase tracking-wide transition-all inline-block text-center min-w-[180px] rounded"
             >
               Book Your Stay
             </a>
             <a
               href="#rooms"
-              className="btn bg-red-600 text-white border-[3px] border-white hover:bg-red-700 px-8 py-3.5 text-sm font-bold uppercase tracking-wide shadow-[4px_4px_0_0_rgb(255,255,255)] hover:shadow-[6px_6px_0_0_rgb(255,255,255)] transition-all inline-block text-center min-w-[180px]"
+              className="btn bg-white/20 text-white hover:bg-white/30 px-8 py-3.5 text-sm font-bold uppercase tracking-wide transition-all inline-block text-center min-w-[180px] rounded"
             >
               View Rooms
             </a>

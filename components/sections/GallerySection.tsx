@@ -47,8 +47,8 @@ export default function GallerySection() {
               <img 
                 src={image.src} 
                 alt={image.alt}
-                className="w-full h-full object-cover min-w-full min-h-full"
-                style={{ objectFit: 'cover' }}
+                className="w-full h-full object-cover"
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
               />
             </div>
           ))}
