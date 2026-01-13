@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingVideoPlayer from "@/components/ui/FloatingVideoPlayer";
+import ThemeColorManager from "@/components/layout/ThemeColorManager";
 
 export const metadata: Metadata = {
   title: "Marco Polo Hotel | Modern Accommodation in Sydney",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ThemeColorManager />
         <a href="#content" className="skip-link">
           Skip to content
         </a>

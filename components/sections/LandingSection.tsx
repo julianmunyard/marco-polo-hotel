@@ -13,6 +13,17 @@ export default function LandingSection() {
       return;
     }
 
+    // Set status bar to black for landing screen
+    const themeColorMeta = document.getElementById('theme-color-meta') as HTMLMetaElement;
+    const appleStatusBarMeta = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]') as HTMLMetaElement;
+    
+    if (themeColorMeta) {
+      themeColorMeta.content = '#000000';
+    }
+    if (appleStatusBarMeta) {
+      appleStatusBarMeta.content = 'black';
+    }
+
     // Reset scroll position to top
     window.scrollTo(0, 0);
 
@@ -26,6 +37,17 @@ export default function LandingSection() {
 
   const handleEnter = () => {
     setIsFadingOut(true);
+    
+    // Change status bar to white when transitioning to main page
+    const themeColorMeta = document.getElementById('theme-color-meta') as HTMLMetaElement;
+    const appleStatusBarMeta = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]') as HTMLMetaElement;
+    
+    if (themeColorMeta) {
+      themeColorMeta.content = '#ffffff';
+    }
+    if (appleStatusBarMeta) {
+      appleStatusBarMeta.content = 'default';
+    }
     
     // Enable scrolling after fade starts
     document.body.style.overflow = '';
