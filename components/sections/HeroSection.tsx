@@ -1,12 +1,15 @@
 export default function HeroSection() {
   return (
     <section 
-      className="relative min-h-[85vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden"
+      className="relative flex items-center justify-center overflow-hidden"
       style={{ 
-        marginTop: '140px',
+        marginTop: '-180px',
+        paddingTop: '180px',
+        height: 'calc(100vh + 180px)',
+        minHeight: 'calc(100vh + 180px)',
         backgroundImage: 'url(/marco%20polo%20images/sunset%20marco.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundSize: '115% auto',
+        backgroundPosition: 'left top',
         backgroundRepeat: 'no-repeat'
       }}
     >
@@ -18,7 +21,7 @@ export default function HeroSection() {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
           <h1 
-            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 drop-shadow-lg uppercase"
+            className="hidden md:block text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 drop-shadow-lg uppercase"
             style={{ 
               fontFamily: "'GT America Mono', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Courier New', monospace",
               letterSpacing: '-0.02em',

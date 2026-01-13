@@ -23,7 +23,7 @@ export default function Navigation() {
       <div className="container">
         <div className="flex flex-col">
           {/* Logo Row */}
-          <div className="flex items-center justify-between py-4 min-h-[64px]">
+          <div className="flex items-center justify-between py-2 md:py-4 min-h-[64px]">
             {/* Spacer on left */}
             <div className="flex-1 hidden md:block"></div>
             
