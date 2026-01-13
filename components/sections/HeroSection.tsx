@@ -8,8 +8,8 @@ export default function HeroSection() {
         height: 'calc(100vh + 180px)',
         minHeight: 'calc(100vh + 180px)',
         backgroundImage: 'url(/marco%20polo%20images/sunset%20marco.jpg)',
-        backgroundSize: '115% auto',
-        backgroundPosition: 'left top',
+        backgroundSize: 'cover',
+        backgroundPosition: 'top center',
         backgroundRepeat: 'no-repeat'
       }}
     >
