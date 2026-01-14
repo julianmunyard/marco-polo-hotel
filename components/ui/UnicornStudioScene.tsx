@@ -49,7 +49,7 @@ export default function UnicornStudioScene({
     // Initialize UnicornStudio - matches the provided snippet
     (function() {
       if (!window.UnicornStudio) {
-        window.UnicornStudio = { isInitialized: false } as Window['UnicornStudio'];
+        window.UnicornStudio = { isInitialized: false };
         const script = document.createElement("script");
         script.type = "text/javascript";
         script.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.1/dist/unicornStudio.umd.js";
@@ -122,6 +122,8 @@ declare global {
     UnicornStudio?: {
       isInitialized: boolean;
       init?: () => void;
+    } | {
+      isInitialized: false;
     };
   }
   var UnicornStudio: {
