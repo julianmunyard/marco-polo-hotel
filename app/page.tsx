@@ -14,14 +14,13 @@ export default function Home() {
       {/* Landing section sits on top as fixed overlay */}
       <LandingSection />
       
-      {/* Normal home page content */}
+      {/* Hero section */}
       <HeroSection />
       
-      <section id="rooms" className="section bg-section" style={{ paddingTop: '60px', scrollMarginTop: '180px' }}>
-        <div className="container">
-          <RoomsSection />
-        </div>
-      </section>
+      {/* Rooms section */}
+      <RoomsSection showTitle={true} />
+      
+      {/* Rest of the page continues normally */}
       <LocationSection />
       <FeaturesSection />
       <GallerySection />
