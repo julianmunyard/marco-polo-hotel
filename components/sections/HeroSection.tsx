@@ -18,6 +18,16 @@ export default function HeroSection() {
     // If on another page, the link will navigate to /#rooms normally
   };
 
+  const handleScrollHintClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      const roomsSection = document.getElementById('rooms');
+      if (roomsSection) {
+        roomsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   return (
     <section 
       id="hero"
@@ -31,96 +41,52 @@ export default function HeroSection() {
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/40 z-[1]"></div>
-      {/* Bento Container - Left Side */}
-      <div className="container relative z-[2] px-4 md:px-0 py-8 md:py-20 lg:py-32">
-        {/* Mobile Design */}
-        <div className="md:hidden flex flex-col items-center justify-center w-full min-h-[80vh]">
-          {/* Action Buttons - Mobile */}
-          <div className="flex flex-col gap-0 w-full max-w-xs items-center">
-              <Link
-                href="/#rooms"
-                onClick={handleSeeRoomsClick}
-                className="bg-transparent text-white px-8 py-4 w-full text-center uppercase tracking-wide transition-all active:scale-95"
-                style={{
-                  fontFamily: "'GT America Mono', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Courier New', monospace",
-                  textTransform: 'lowercase',
-                  fontWeight: 600,
-                  boxShadow: 'none',
-                  minHeight: '56px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
-                see rooms
-              </Link>
-              <Link
-                href="https://bookings12.rmscloud.com/Search/Index/0C8B2754C6C8240A/1/"
-                target="_blank"
-                className="bg-transparent text-white px-8 py-4 w-full text-center uppercase tracking-wide transition-all active:scale-95"
-                style={{
-                  fontFamily: "'GT America Mono', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Courier New', monospace",
-                  textTransform: 'lowercase',
-                  fontWeight: 600,
-                  boxShadow: 'none',
-                  minHeight: '56px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
-                book now
-              </Link>
-          </div>
-        </div>
-
-        {/* Desktop Design */}
-        <div className="hidden md:flex flex-col gap-6 items-start">
-          {/* Combined Box */}
-          <div className="bg-transparent border-[4px] border-white p-8 lg:p-10 xl:p-12 w-auto md:max-w-max text-left">
-              <h1 
-                className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight uppercase mb-4 lg:mb-6"
-                style={{ 
-                  fontFamily: "'Skranji', cursive",
-                  letterSpacing: '-0.02em',
-                  lineHeight: '1.2',
-                  fontWeight: 700,
-                  color: '#ffffff'
-                }}
-              >
-                MARCO POLO SYDNEY HOTEL
-              </h1>
-
-              {/* Links inside box */}
-              <div className="flex flex-row gap-6 items-start mt-2">
-                <Link
-                  href="/#rooms"
-                  onClick={handleSeeRoomsClick}
-                  className="text-base uppercase tracking-wide transition-colors hover:opacity-80"
-                  style={{
-                    fontFamily: "'GT America Mono', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Courier New', monospace",
-                    color: '#ffffff',
-                    textTransform: 'lowercase'
-                  }}
-                >
-                  see rooms
-                </Link>
-                <Link
-                  href="https://bookings12.rmscloud.com/Search/Index/0C8B2754C6C8240A/1/"
-                  target="_blank"
-                  className="text-base uppercase tracking-wide transition-colors hover:opacity-80"
-                  style={{
-                    fontFamily: "'GT America Mono', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Courier New', monospace",
-                    color: '#ffffff',
-                    textTransform: 'lowercase'
-                  }}
-                >
-                  book now
-                </Link>
-              </div>
-            </div>
+      
+      {/* Hero content card */}
+      <div className="hero-card relative z-[2]">
+        <h1 className="hero-title">Marco Polo Motor Inn</h1>
+        <p className="hero-subtitle">Roadside comfort, minutes from Sydney CBD.</p>
+        <p className="hero-supporting">Freshly updated rooms, easy parking, honest prices.</p>
+        
+        <div className="hero-cta-group">
+          <Link 
+            href="/#rooms" 
+            onClick={handleSeeRoomsClick} 
+            className="hero-cta-primary"
+          >
+            See Rooms
+          </Link>
+          <Link 
+            href="/about-us-hotels-in-sydney" 
+            className="hero-cta-secondary"
+          >
+            About the inn
+          </Link>
         </div>
       </div>
+      
+      {/* Scroll hint */}
+      <Link 
+        href="/#rooms" 
+        onClick={handleScrollHintClick}
+        className="hero-scroll-hint"
+        aria-label="Scroll to rooms"
+      >
+        <span>Scroll to rooms</span>
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth={2} 
+            d="M19 14l-7 7m0 0l-7-7m7 7V3" 
+          />
+        </svg>
+      </Link>
     </section>
   );
 }
