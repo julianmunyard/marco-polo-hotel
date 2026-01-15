@@ -117,8 +117,8 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 animate-fade-in">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-4 pb-8 animate-fade-in">
+            <div className="flex flex-col gap-4 items-center">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
@@ -129,7 +129,7 @@ export default function Navigation() {
                       handleHomeClick(e);
                     }
                   }}
-                  className={`text-base font-medium transition-colors py-2 px-2 uppercase ${
+                  className={`text-base font-medium transition-colors py-2 px-2 uppercase text-center ${
                     pathname === item.href || (item.label === "Home" && pathname === "/")
                       ? "text-gray-900"
                       : "text-gray-600"

@@ -20,11 +20,15 @@ export default function Home() {
       {/* Rooms section */}
       <RoomsSection showTitle={true} />
       
+      {/* Gallery section */}
+      <GallerySection />
+      
+      {/* Special Offers section */}
+      <OffersSection />
+      
       {/* Rest of the page continues normally */}
       <LocationSection />
       <FeaturesSection />
-      <GallerySection />
-      <OffersSection />
       <TestimonialsSection />
       <InfoGridSection />
     </>

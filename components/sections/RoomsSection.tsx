@@ -24,7 +24,7 @@ export default function RoomsSection({ showTitle = true }: RoomsSectionProps) {
   }, [filter]);
 
   return (
-    <section className="section bg-section">
+    <section id="rooms" className="section bg-section">
       <div className="container">
         {showTitle && (
           <div className="text-center mb-12 px-4">
