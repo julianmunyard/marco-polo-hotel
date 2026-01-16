@@ -106,7 +106,7 @@ export default function Navigation() {
                   backgroundColor: 'transparent',
                   padding: '10px 20px',
                   fontSize: '15px',
-                  fontFamily: "'Cantata One', serif",
+                  fontFamily: "'Raleway', sans-serif",
                 }}
               >
                 BOOK NOW
@@ -176,8 +176,8 @@ export default function Navigation() {
       }`}
       style={{ width: '300px', paddingTop: '64px' }}
     >
-      <div className="p-6">
-        <div className="flex flex-col gap-4">
+      <div className="h-full flex items-center justify-center">
+        <div className="flex flex-col gap-4 items-center">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -188,7 +188,7 @@ export default function Navigation() {
                   handleHomeClick(e);
                 }
               }}
-              className={`text-base font-medium transition-colors py-2 px-2 uppercase ${
+              className={`text-base font-medium transition-colors py-2 px-2 uppercase text-center ${
                 pathname === item.href || (item.label === "Home" && pathname === "/")
                   ? "text-gray-900"
                   : "text-gray-600 hover:text-gray-900"
