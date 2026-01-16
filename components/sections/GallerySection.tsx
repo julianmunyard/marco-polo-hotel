@@ -11,6 +11,18 @@ interface GalleryImage {
   order: number;
 }
 
+// Fallback images - original gallery images
+const fallbackImages = [
+  { id: 1, src: "/marco%20polo%20images/starry%20marco.jpg", alt: "Starry Marco Polo Motel" },
+  { id: 2, src: "/marco%20polo%20images/inside/marco%20side%20on%20.jpg", alt: "Marco Polo Motel Side View" },
+  { id: 3, src: "/marco%20polo%20images/inside/bathroom.avif", alt: "Bathroom" },
+  { id: 4, src: "/marco%20polo%20images/inside/inside%202.avif", alt: "Inside View 2" },
+  { id: 5, src: "/marco%20polo%20images/inside/inside%203.avif", alt: "Inside View 3" },
+  { id: 6, src: "/marco%20polo%20images/inside/inside%20rooms.avif", alt: "Inside Rooms" },
+  { id: 7, src: "/marco%20polo%20images/inside/outside.avif", alt: "Outside View" },
+  { id: 8, src: "/marco%20polo%20images/inside/shower.webp", alt: "Shower" },
+];
+
 export default function GallerySection() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [images, setImages] = useState<Array<{ id: string; src: string; alt: string }>>([]);
@@ -20,16 +32,22 @@ export default function GallerySection() {
     async function fetchImages() {
       try {
         const galleryImages = await getGalleryImages();
-        const formattedImages = galleryImages.map((img: GalleryImage) => ({
-          id: img._id,
-          src: urlFor(img.image).width(800).height(800).url(),
-          alt: img.alt,
-        }));
-        setImages(formattedImages);
+        // If Sanity has images, use those; otherwise use fallback
+        if (galleryImages && galleryImages.length > 0) {
+          const formattedImages = galleryImages.map((img: GalleryImage) => ({
+            id: img._id,
+            src: urlFor(img.image).width(800).height(800).url(),
+            alt: img.alt,
+          }));
+          setImages(formattedImages);
+        } else {
+          // Use fallback images if Sanity is empty
+          setImages(fallbackImages);
+        }
       } catch (error) {
         console.error('Error fetching gallery images:', error);
-        // Fallback to empty array if Sanity fails
-        setImages([]);
+        // Use fallback images if Sanity fails
+        setImages(fallbackImages);
       } finally {
         setLoading(false);
       }
@@ -66,12 +84,7 @@ export default function GallerySection() {
           </p>
         </div>
         
-        {images.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-gray-600">No gallery images available. Please add images in Sanity Studio.</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
           {images.map((image, index) => (
             <div
               key={image.id}
