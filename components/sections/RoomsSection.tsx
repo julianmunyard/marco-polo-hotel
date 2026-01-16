@@ -3,6 +3,8 @@
 import { useState, useMemo, useEffect } from "react";
 import RoomCard from "@/components/ui/RoomCard";
 import { rooms } from "@/data/rooms";
+import { getRoomPrices } from "@/sanity/lib/queries";
+import type { Room } from "@/components/ui/RoomCard";
 
 interface RoomsSectionProps {
   showTitle?: boolean;
@@ -10,6 +12,8 @@ interface RoomsSectionProps {
 
 export default function RoomsSection({ showTitle = true }: RoomsSectionProps) {
   const [filter, setFilter] = useState<"deluxe" | "standard">("deluxe");
+  const [roomPrices, setRoomPrices] = useState<Record<string, number>>({});
+  const [loadingPrices, setLoadingPrices] = useState(true);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -19,9 +23,29 @@ export default function RoomsSection({ showTitle = true }: RoomsSectionProps) {
     }
   }, []);
 
+  useEffect(() => {
+    async function fetchPrices() {
+      try {
+        const prices = await getRoomPrices();
+        setRoomPrices(prices);
+      } catch (error) {
+        console.error('Error fetching room prices:', error);
+        // If Sanity fails, prices will fall back to data/rooms.ts values
+      } finally {
+        setLoadingPrices(false);
+      }
+    }
+    fetchPrices();
+  }, []);
+
   const filteredRooms = useMemo(() => {
-    return rooms.filter((room) => room.type === filter);
-  }, [filter]);
+    const filtered = rooms.filter((room) => room.type === filter);
+    // Merge Sanity prices with room data
+    return filtered.map((room) => ({
+      ...room,
+      price: roomPrices[room.id] ?? room.price, // Use Sanity price if available, otherwise fallback to data/rooms.ts
+    })) as Room[];
+  }, [filter, roomPrices]);
 
   return (
     <section id="rooms" className="section bg-section">
