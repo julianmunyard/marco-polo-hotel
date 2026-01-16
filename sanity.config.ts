@@ -3,6 +3,7 @@ import { structureTool } from 'sanity/structure';
 import { schemaTypes } from './sanity/schemas';
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '';
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 
 if (!projectId) {
   console.warn('NEXT_PUBLIC_SANITY_PROJECT_ID is not set. Sanity Studio will not work properly.');
@@ -13,7 +14,9 @@ export default defineConfig({
   title: 'Marco Polo Motor Inn',
 
   projectId,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  dataset,
+
+  basePath: '/studio',
 
   plugins: [structureTool()],
 
