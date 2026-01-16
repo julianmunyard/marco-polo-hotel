@@ -20,6 +20,10 @@ export interface RoomPrice {
 }
 
 export async function getGalleryImages(): Promise<GalleryImage[]> {
+  if (!client) {
+    return [];
+  }
+  
   const query = `*[_type == "galleryImage"] | order(order asc) {
     _id,
     image,
@@ -31,6 +35,10 @@ export async function getGalleryImages(): Promise<GalleryImage[]> {
 }
 
 export async function getHeroContent(): Promise<HeroContent | null> {
+  if (!client) {
+    return null;
+  }
+  
   const query = `*[_type == "hero"][0] {
     backgroundImage,
     subtitle,
@@ -42,6 +50,10 @@ export async function getHeroContent(): Promise<HeroContent | null> {
 }
 
 export async function getRoomPrices(): Promise<Record<string, number>> {
+  if (!client) {
+    return {};
+  }
+  
   const query = `*[_type == "roomPrice"] {
     roomId,
     price
