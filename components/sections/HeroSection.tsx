@@ -39,14 +39,14 @@ export default function HeroSection() {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/40 z-[1]"></div>
+      {/* Dark overlay with fade-in */}
+      <div className="hero-overlay absolute inset-0 bg-black/40 z-[1]"></div>
       
-      {/* Hero content card */}
-      <div className="hero-card relative z-[2]">
-        <h1 className="hero-title">Marco Polo Motor Inn</h1>
+      {/* Hero content - centered */}
+      <div className="hero-content relative z-[2] text-center">
+        <h1 className="hero-title">Marco Polo</h1>
         <p className="hero-subtitle">Roadside comfort, minutes from Sydney CBD.</p>
-        <p className="hero-supporting">Freshly updated rooms, easy parking, honest prices.</p>
+        <p className="hero-supporting">Comfortable rooms, easy parking, honest prices.</p>
         
         <div className="hero-cta-group">
           <Link 
@@ -65,7 +65,7 @@ export default function HeroSection() {
         </div>
       </div>
       
-      {/* Scroll hint */}
+      {/* Scroll hint with delayed fade-in */}
       <Link 
         href="/#rooms" 
         onClick={handleScrollHintClick}

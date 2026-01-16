@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Skranji:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cantata+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cantata+One&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Rampart+One&family=Skranji:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 /* Barber Font Family */
@@ -31,6 +32,24 @@
   src: url('/fonts/Barber-v2.0/Fonts/Barber-Shadow.woff2') format('woff2'),
        url('/fonts/Barber-v2.0/Fonts/Barber-Shadow.woff') format('woff'),
        url('/fonts/Barber-v2.0/Fonts/Barber-Shadow.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barber-Right';
+  src: url('/fonts/Barber-v2.0/Fonts/Barber-Right.woff2') format('woff2'),
+       url('/fonts/Barber-v2.0/Fonts/Barber-Right.woff') format('woff'),
+       url('/fonts/Barber-v2.0/Fonts/Barber-Right.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outward-Borders';
+  src: url('/fonts/Barber-v2.0/Fonts/outward-borders.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -410,74 +429,82 @@ img {
 }
 
 /* Hero Section Styles */
-.hero-card {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: clamp(2rem, 5vw, 4rem);
-  max-width: 720px;
-  width: 100%;
-  margin: 0 auto;
-  animation: heroFadeUp 0.8s ease-out forwards;
+.hero-overlay {
+  animation: heroFadeIn 1.2s ease-out 1.5s forwards;
   opacity: 0;
 }
 
+.hero-content {
+  animation: heroFadeUp 1.2s ease-out 1.8s forwards;
+  opacity: 0;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
   color: #ffffff;
   margin-bottom: 1.5rem;
-  animation: heroFadeUp 0.8s ease-out 0.2s forwards;
+  white-space: nowrap;
+  text-align: center;
+  animation: heroFadeUp 1.2s ease-out 2.1s forwards;
   opacity: 0;
 }
 
 .hero-subtitle {
-  font-family: 'GT America Mono', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Courier New', monospace;
+  font-family: 'Raleway', sans-serif;
   font-size: clamp(0.875rem, 1.5vw, 1.125rem);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0.75rem;
-  animation: heroFadeUp 0.8s ease-out 0.4s forwards;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  animation: heroFadeUp 1.2s ease-out 2.3s forwards;
   opacity: 0;
 }
 
 .hero-supporting {
-  font-family: 'GT America Mono', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Courier New', monospace;
+  font-family: 'Raleway', sans-serif;
   font-size: clamp(0.75rem, 1.2vw, 0.9375rem);
   font-weight: 300;
   line-height: 1.6;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.75);
   margin-bottom: 2.5rem;
-  animation: heroFadeUp 0.8s ease-out 0.6s forwards;
+  text-align: center;
+  animation: heroFadeUp 1.2s ease-out 2.5s forwards;
   opacity: 0;
 }
 
 .hero-cta-group {
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  animation: heroFadeUp 0.8s ease-out 0.8s forwards;
+  animation: heroFadeUp 1.2s ease-out 2.7s forwards;
   opacity: 0;
 }
 
 .hero-cta-primary {
-  font-family: 'GT America Mono', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Courier New', monospace;
+  font-family: 'Raleway', sans-serif;
   font-size: clamp(0.875rem, 1.2vw, 1rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #000000;
   background: #ffffff;
-  border: 2px solid #ffffff;
+  border: 1px solid #ffffff;
   padding: 1rem 2.5rem;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -487,14 +514,15 @@ img {
 }
 
 .hero-cta-primary:hover {
-  background: transparent;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .hero-cta-secondary {
-  font-family: 'GT America Mono', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Courier New', monospace;
+  font-family: 'Raleway', sans-serif;
   font-size: clamp(0.75rem, 1vw, 0.875rem);
   font-weight: 400;
   letter-spacing: 0.05em;
@@ -513,7 +541,6 @@ img {
   position: absolute;
   bottom: 2rem;
   left: 50%;
-  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -524,7 +551,8 @@ img {
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  animation: heroBounce 2s ease-in-out infinite;
+  animation: heroFadeIn 1s ease-out 3s forwards, heroBounce 2s ease-in-out 4s infinite;
+  opacity: 0;
   z-index: 2;
 }
 
@@ -535,33 +563,54 @@ img {
 .hero-scroll-hint svg {
   width: 24px;
   height: 24px;
-  animation: heroBounce 2s ease-in-out infinite;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes heroFadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes heroBounce {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateX(-50%) translateY(-10px);
   }
 }
 
 @media (max-width: 768px) {
-  .hero-card {
-    padding: clamp(1.5rem, 4vw, 2.5rem);
-    margin: 0 1rem;
+  .hero-content {
+    padding: 0 1.5rem;
+  }
+  
+  /* Title keeps desktop styling - no overrides needed */
+  
+  .hero-subtitle {
+    padding: 0.5rem 1rem;
+    border-width: 0.5px;
+    border-color: rgba(255, 255, 255, 0.2);
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+  
+  .hero-supporting {
+    margin-bottom: 1.5rem;
+    font-size: clamp(0.8125rem, 1.5vw, 0.9375rem);
   }
   
   .hero-cta-group {
@@ -576,5 +625,11 @@ img {
   
   .hero-scroll-hint {
     bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-supporting {
+    display: none;
   }
 }
