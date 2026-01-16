@@ -5,8 +5,9 @@ import config from '../../../sanity.config';
 
 export default function StudioPage() {
   const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+  const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 
-  if (!projectId) {
+  if (!projectId || !dataset) {
     return (
       <div style={{ 
         padding: '2rem', 
@@ -20,6 +21,21 @@ export default function StudioPage() {
         <p style={{ marginBottom: '1rem', color: '#666' }}>
           Sanity Studio requires environment variables to be configured.
         </p>
+        
+        <div style={{ 
+          marginBottom: '1rem', 
+          padding: '1rem', 
+          backgroundColor: '#f5f5f5', 
+          borderRadius: '4px',
+          fontSize: '0.875rem'
+        }}>
+          <p style={{ marginBottom: '0.5rem', fontWeight: 'bold' }}>Current values:</p>
+          <ul style={{ margin: 0, paddingLeft: '1.5rem' }}>
+            <li><code>NEXT_PUBLIC_SANITY_PROJECT_ID</code>: {projectId ? `"${projectId}"` : '<strong style="color: red;">MISSING</strong>'}</li>
+            <li><code>NEXT_PUBLIC_SANITY_DATASET</code>: {dataset ? `"${dataset}"` : '<strong style="color: red;">MISSING</strong>'}</li>
+          </ul>
+        </div>
+        
         <p style={{ marginBottom: '1rem', color: '#666' }}>
           Please ensure the following environment variables are set in your Vercel project:
         </p>
@@ -29,12 +45,22 @@ export default function StudioPage() {
           marginBottom: '1rem',
           color: '#666'
         }}>
-          <li><code>NEXT_PUBLIC_SANITY_PROJECT_ID</code> (your project ID: c5zmtyth)</li>
-          <li><code>NEXT_PUBLIC_SANITY_DATASET</code> (default: production)</li>
+          <li><code>NEXT_PUBLIC_SANITY_PROJECT_ID</code> = <code>c5zmtyth</code></li>
+          <li><code>NEXT_PUBLIC_SANITY_DATASET</code> = <code>production</code></li>
         </ul>
-        <p style={{ color: '#666' }}>
-          After adding these in your Vercel project settings, the deployment will automatically rebuild.
+        <p style={{ marginBottom: '1rem', color: '#666' }}>
+          <strong>Important:</strong> After adding/updating these in Vercel, you must:
         </p>
+        <ol style={{ 
+          listStyle: 'decimal', 
+          paddingLeft: '2rem', 
+          marginBottom: '1rem',
+          color: '#666'
+        }}>
+          <li>Make sure the values are exactly: <code>c5zmtyth</code> and <code>production</code> (no typos)</li>
+          <li>Make sure they're set for "All Environments" or at least "Production"</li>
+          <li>Redeploy the project (Vercel should auto-redeploy, but you can trigger a new deployment manually)</li>
+        </ol>
       </div>
     );
   }
