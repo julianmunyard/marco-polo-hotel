@@ -33,9 +33,11 @@ export default {
       roomId: 'roomId',
       price: 'price',
     },
-    prepare({ roomId, price }: { roomId: string; price: number }) {
+    prepare(value: Record<string, any>) {
+      const roomId = value.roomId || '';
+      const price = value.price || 0;
       return {
-        title: roomId ? roomId.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()) : 'Untitled Room',
+        title: roomId ? roomId.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) : 'Untitled Room',
         subtitle: `$${price} per night`,
       };
     },

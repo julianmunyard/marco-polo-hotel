@@ -33,9 +33,12 @@ export default {
       media: 'image',
       order: 'order',
     },
-    prepare({ title, media, order }: { title: string; media: any; order: number }) {
+    prepare(value: Record<string, any>) {
+      const title = value.title || 'Untitled';
+      const media = value.media;
+      const order = value.order;
       return {
-        title: title || 'Untitled',
+        title,
         subtitle: `Order: ${order}`,
         media,
       };
