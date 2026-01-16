@@ -13,14 +13,14 @@ interface GalleryImage {
 
 // Fallback images - original gallery images
 const fallbackImages = [
-  { id: 1, src: "/marco%20polo%20images/starry%20marco.jpg", alt: "Starry Marco Polo Motel" },
-  { id: 2, src: "/marco%20polo%20images/inside/marco%20side%20on%20.jpg", alt: "Marco Polo Motel Side View" },
-  { id: 3, src: "/marco%20polo%20images/inside/bathroom.avif", alt: "Bathroom" },
-  { id: 4, src: "/marco%20polo%20images/inside/inside%202.avif", alt: "Inside View 2" },
-  { id: 5, src: "/marco%20polo%20images/inside/inside%203.avif", alt: "Inside View 3" },
-  { id: 6, src: "/marco%20polo%20images/inside/inside%20rooms.avif", alt: "Inside Rooms" },
-  { id: 7, src: "/marco%20polo%20images/inside/outside.avif", alt: "Outside View" },
-  { id: 8, src: "/marco%20polo%20images/inside/shower.webp", alt: "Shower" },
+  { id: "1", src: "/marco%20polo%20images/starry%20marco.jpg", alt: "Starry Marco Polo Motel" },
+  { id: "2", src: "/marco%20polo%20images/inside/marco%20side%20on%20.jpg", alt: "Marco Polo Motel Side View" },
+  { id: "3", src: "/marco%20polo%20images/inside/bathroom.avif", alt: "Bathroom" },
+  { id: "4", src: "/marco%20polo%20images/inside/inside%202.avif", alt: "Inside View 2" },
+  { id: "5", src: "/marco%20polo%20images/inside/inside%203.avif", alt: "Inside View 3" },
+  { id: "6", src: "/marco%20polo%20images/inside/inside%20rooms.avif", alt: "Inside Rooms" },
+  { id: "7", src: "/marco%20polo%20images/inside/outside.avif", alt: "Outside View" },
+  { id: "8", src: "/marco%20polo%20images/inside/shower.webp", alt: "Shower" },
 ];
 
 export default function GallerySection() {
@@ -108,8 +108,7 @@ export default function GallerySection() {
               />
             </div>
           ))}
-          </div>
-        )}
+        </div>
 
         {selectedImage !== null && images.length > 0 && (
           <div
